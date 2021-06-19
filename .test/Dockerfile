@@ -18,6 +18,6 @@ RUN cat .SRCINFO | grep -oP "depends\ \=\ \K.+" | xargs sudo -u aur yay -S --noc
 
 RUN sudo -u aur makepkg -i --noconfirm
 
-RUN printf "\nexport ROS_DOMAIN_ID=42\nsource /opt/ros2/foxy/setup.bash\n" >> ~/.bashrc
+RUN printf "\nexport ROS_DOMAIN_ID=42\nsource /opt/ros2/galactic/setup.bash\n" >> ~/.bashrc
 
 CMD [ "bash", "-c", "'source ~/.bashrc && ros2'" ]
