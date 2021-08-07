@@ -1,5 +1,5 @@
 default:
-	sudo systemctl start docker.service
+	systemctl is-active --quiet docker.service || sudo systemctl start docker.service
 	sudo bash -c "cd .. && docker build -f .test/Dockerfile --network="host" -t ros2-galactic-test ."
 
 test:
