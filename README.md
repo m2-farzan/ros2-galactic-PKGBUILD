@@ -21,6 +21,8 @@ in pull request description.
 
 [This package on AUR](https://aur.archlinux.org/packages/ros2-galactic/)
 
+[ROS 2 Supplementary PKGBUILDS](https://github.com/m2-farzan/ros2-supplementary-pkgbuilds)
+
 [ROS 2 on Arch Wiki](https://wiki.archlinux.org/index.php/ROS)
 
 [ROS 2 Docs](https://docs.ros.org/en/galactic)
