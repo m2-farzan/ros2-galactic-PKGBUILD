@@ -43,6 +43,13 @@ jobs:
           key: ${{ runner.os }}
       - name: Build the package
         run: |
-          mkdir -p ~/build-cache/src
-          sudo chown -R 1000:1000 ~/build-cache/src
-          docker run -v $HOME/build-cache/src:/ros2-pkg/src --rm -t localhost:5000/ros2-galactic:ci
+          mkdir -p ~/build-cache/src ~/build-artifact
+          sudo chown -R 1000:1000 ~/build-cache/src ~/build-artifact
+          docker run --rm -t \
+            -v $HOME/build-cache/src:/ros2-pkg/src \
+            -v $HOME/build-artifact:/ros2-pkg/artifact \
+            localhost:5000/ros2-galactic:ci
+      - uses: actions/upload-artifact@v2
+        with:
+          name: package
+          path: ~/build-artifact/*

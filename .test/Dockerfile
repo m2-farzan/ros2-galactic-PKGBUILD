@@ -10,10 +10,10 @@ COPY --chown=$AUR_USER . /ros2-pkg
 
 USER $AUR_USER
 WORKDIR /ros2-pkg
-RUN mkdir src
+RUN mkdir src artifact
 
 USER root
 
 RUN cat .SRCINFO | grep -oP "depends\ \=\ \K.+" | xargs sudo -u $AUR_USER yay -S --noconfirm --noprogressbar --needed
 
-CMD [ "bash", "-c", "chown -R ab:ab /ros2-pkg && sudo -u ab makepkg" ]
+CMD [ "bash", "-c", "chown -R ab:ab /ros2-pkg && sudo -u ab env PKGDEST=/ros2-pkg/artifact makepkg" ]
