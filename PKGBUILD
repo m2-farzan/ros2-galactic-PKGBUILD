@@ -8,7 +8,7 @@
 
 pkgname=ros2-galactic
 pkgver=2021.07.16
-pkgrel=4
+pkgrel=5
 pkgdesc="A set of software libraries and tools for building robot applications"
 url="https://docs.ros.org/en/galactic/"
 arch=('any')
@@ -18,6 +18,9 @@ depends=(
     'ros2-pyqt5-sip-compat'
     'gmock'
     'sip4'
+)
+makedepends=(
+    'bbe'
 )
 source=(
     "ros2::git+https://github.com/ros2/ros2#tag=release-galactic-20210716"
@@ -78,4 +81,12 @@ build() {
 package() {
     mkdir -p $pkgdir/opt/ros2/galactic
     cp -r $srcdir/install/* $pkgdir/opt/ros2/galactic/
+
+    # Move location references to target path
+    PATTERN_=s_$srcdir/install_/opt/ros2/galactic_g
+    printf "PATH_FIX_PATTERN=${PATTERN_}"
+    for file in $(find $pkgdir -type f); do
+        bbe -e "${PATTERN_}" "${file}" -o "${file}.path_fix.tmp"
+        mv "${file}.path_fix.tmp" "${file}"
+    done
 }
