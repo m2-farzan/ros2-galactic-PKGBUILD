@@ -1,14 +1,7 @@
-# From: https://github.com/docker/build-push-action/blob/master/docs/advanced/cache.md#github-cache
-# See also: https://github.com/docker/build-push-action/blob/master/docs/advanced/local-registry.md
-# See also: https://evilmartians.com/chronicles/build-images-on-github-actions-with-docker-layer-caching
-
 name: test
 
 on:
   push:
-    branches:
-      - 'extended'
-      - 'fix-ci'
   pull_request:
 
 jobs:
