@@ -21,6 +21,5 @@ jobs:
       - name: Build
         uses: addnab/docker-run-action@v3
         with:
-          registry: ghcr.io
-          image: greyltc-org/archlinux-aur:yay
+          image: ghcr.io/greyltc-org/archlinux-aur:yay
           run: bash .github/workflows/test.bash
