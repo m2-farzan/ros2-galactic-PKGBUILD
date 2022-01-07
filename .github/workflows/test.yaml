@@ -1,55 +1,19 @@
-# From: https://github.com/docker/build-push-action/blob/master/docs/advanced/cache.md#github-cache
-# See also: https://github.com/docker/build-push-action/blob/master/docs/advanced/local-registry.md
-# See also: https://evilmartians.com/chronicles/build-images-on-github-actions-with-docker-layer-caching
-
 name: test
 
 on:
   push:
-    branches:
-      - 'extended'
   pull_request:
 
 jobs:
   docker:
     runs-on: ubuntu-latest
     timeout-minutes: 300
-    services:
-      registry:
-        image: registry:2
-        ports:
-          - 5000:5000
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
+      - name: Build
+        uses: addnab/docker-run-action@v3
         with:
-          driver-opts: network=host
-      - name: Build requirements
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: .test/Dockerfile
-          push: true
-          tags: localhost:5000/ros2-galactic:ci
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-      - name: Load build cache
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/build-cache/src
-          key: ${{ runner.os }}
-      - name: Build the package
-        run: |
-          mkdir -p ~/build-cache/src ~/build-artifact
-          sudo chown -R 1000:1000 ~/build-cache/src ~/build-artifact
-          docker run --rm -t \
-            -v $HOME/build-cache/src:/ros2-pkg/src \
-            -v $HOME/build-artifact:/ros2-pkg/artifact \
-            localhost:5000/ros2-galactic:ci
-      - uses: actions/upload-artifact@v2
-        with:
-          name: package
-          path: ~/build-artifact/*
+          image: ghcr.io/greyltc-org/archlinux-aur:yay
+          options: -v ${{ github.workspace }}:/ros2-galactic-pkgbuild
+          run: bash /ros2-galactic-pkgbuild/.github/workflows/test.bash
