@@ -12,6 +12,6 @@ cat .SRCINFO | grep -oP "depends\ \=\ \K.+" | xargs sudo -u ${AUR_USER} yay -S -
 
 # Temporary fix (waiting for https://github.com/acxz/pkgbuilds/issues/161)
 pacman -S python-pip --noconfirm --noprogressbar
-sudo -u ${AUR_USER} pip3 install colcon-core==0.7.0
+pip3 install colcon-core==0.7.0
 
 sudo -u ${AUR_USER} makepkg
