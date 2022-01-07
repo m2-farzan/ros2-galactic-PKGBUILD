@@ -5,4 +5,4 @@ sudo pacman -Syyu --noconfirm --noprogressbar
 git config --global user.name "Test User"
 git config --global user.email "test@example.com"
 cat .SRCINFO | grep -oP "depends\ \=\ \K.+" | xargs sudo -u ${AUR_USER} yay -S --noconfirm --noprogressbar --needed
-makepkg
+sudo -u ${AUR_USER} makepkg
