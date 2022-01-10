@@ -1,5 +1,9 @@
 # ROS 2 (Galactic) PKGBUILD
 
+[![AUR - ros2-galactic](https://img.shields.io/static/v1?label=AUR&message=ros2-galactic&color=1793D1&logo=archlinux)](https://aur.archlinux.org/packages/ros2-galactic/)
+![CI](https://github.com/m2-farzan/ros2-galactic-PKGBUILD/actions/workflows/test.yaml/badge.svg)
+![Consider starring the repo!](https://img.shields.io/static/v1?label=&message=Consider+starring+the+repo!&color=gold)
+
 This package aims to provide an easy way to install ROS 2 on Archlinux.
 
 ## Contribution
