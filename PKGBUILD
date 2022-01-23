@@ -4,12 +4,13 @@
 # Contributor: Rémy B. (github.com/KirrimK)
 # Contributor: Renato Caldas (github.com/rmsc)
 # Contributor: goekce (github.com/goekce)
+# Contributor: David Castellon (github.com/bobosito000)
 # Acknowledgment: This work is hugely based on `ros2-arch-deps` AUR
 # package, maintained by T. Borgert.
 
 pkgname=ros2-galactic
 pkgver=2021.07.16
-pkgrel=7
+pkgrel=8
 pkgdesc="A set of software libraries and tools for building robot applications"
 url="https://docs.ros.org/en/galactic/"
 arch=('any')
