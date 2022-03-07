@@ -11,8 +11,6 @@ sudo pacman -Syyu --noconfirm --noprogressbar
 pacman -S wget python-pip python-pyqt5 --noconfirm --noprogressbar
 pip3 install pyqt5==5.15.5
 
-sudo -u ${AUR_USER} git config --global user.name "Test User"
-sudo -u ${AUR_USER} git config --global user.email "test@example.com"
 cat .SRCINFO | grep -oP "depends\ \=\ \K.+" | xargs sudo -u ${AUR_USER} yay -S --noconfirm --noprogressbar --needed
 
 sudo -u ${AUR_USER} makepkg
