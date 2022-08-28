@@ -82,7 +82,7 @@ prepare() {
     ## rmw_cyclonedds_cpp
     git -C $srcdir/ros2/src/ros2/rmw_cyclonedds cherry-pick f57732d15be53796d518e12352866124efcaa939
     ## ament_cmake
-    git -C $srcdir/ros2/src/ament/ament_cmake cherry-pick 11c44dbd646846a2e8ca912155f0704e9b0c3c57
+    git -C $srcdir/ros2/src/ament/ament_cmake cherry-pick ca8c26ea3c89e69c0c636b7cd0c088674c689f5f
 }
 
 build() {
