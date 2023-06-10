@@ -87,8 +87,8 @@ prepare() {
     git -C $srcdir/ros2/src/ros2/rclcpp cherry-pick 86c77143c96d85711a87f2a5adcc4d7f0fb0dbeb
     ## pybind11_vendor: Support for python 3.11
     git -C $srcdir/ros2/src/ros2/pybind11_vendor checkout 3.0.3
-    ## rosbag2_storage: apply patch to fix missing cstdint include
-    git -C $srcdir/ros2/src/ros2/rosbag2 apply $srcdir/rosbag2_storage.patch
+    ## rosbag2_storage: cherry pick to fix missing cstdint include
+    git -C $srcdir/ros2/src/ros2/rosbag2 cherry-pick 5f5a583ca2e47f6a2ec1bca6076576a99efaaf73
     ## rosbag2_compression: cherry pick to fix missing cstdint include
     git -C $srcdir/ros2/src/ros2/rosbag2 cherry-pick 65c889e1fa55dd85a148b27b8c27dadc73238e67
     ## image_pipeline: revert broken commit
