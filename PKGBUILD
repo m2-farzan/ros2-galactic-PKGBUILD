@@ -91,8 +91,6 @@ prepare() {
     git -C $srcdir/ros2/src/ros2/rosbag2 cherry-pick 5f5a583ca2e47f6a2ec1bca6076576a99efaaf73
     ## rosbag2_compression: cherry pick to fix missing cstdint include
     git -C $srcdir/ros2/src/ros2/rosbag2 cherry-pick 65c889e1fa55dd85a148b27b8c27dadc73238e67
-    ## image_pipeline: revert broken commit
-    git -C $srcdir/ros2/src/ros-visualization/image_pipeline revert 46f4a1849843efee368415b95498e7b7b7ece03b
 }
 
 build() {
